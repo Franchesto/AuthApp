@@ -38,9 +38,7 @@ namespace AuthApp.Controllers
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm]User user)
-        {
-            var a = Request;            
-
+        {            
             await registerUseCase.ExecuteAsync(user);
 
             return Ok();
