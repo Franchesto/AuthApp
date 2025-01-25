@@ -28,9 +28,11 @@ namespace AuthAppUseCases
                 var token = await authService.Login(userLogin);
 
                 return token;
+
             }
             catch (UnauthorizedAccessException ex)
             {
+                Console.Write("Testing git changes");
                 logger.LogError(ex.Message);
                 throw;
             }
