@@ -32,6 +32,8 @@ namespace AuthAppInfrastructure.Services
 
             await _context.Users.AddAsync(user);
 
+            throw new InvalidOperationException();
+
             var result = await _context.SaveChangesAsync();
 
             if (result != 1)

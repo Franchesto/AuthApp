@@ -1,4 +1,5 @@
 using AuthApp;
+using AuthApp.ErrorHandingExtension;
 using AuthAppCore.Models;
 using AuthAppInfrastructure.Interfaces;
 using AuthAppInfrastructure.Services;
@@ -47,10 +48,9 @@ builder.Services.AddAuthentication(options =>
     });
 builder.Services.AddAuthorization();
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseExceptionHandler(exceptionHandlerApp => exceptionHandlerApp.ConfigureExceptionHandler());
 
 app.UseHttpsRedirection();
 
